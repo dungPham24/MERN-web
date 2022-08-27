@@ -1,0 +1,90 @@
+import palette from "./palette";
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {
+  fontFamily: ["Open Sans", "Roboto", "Arial", "sans-serif"].join(","),
+  h1: {
+    color: palette.grey[700],
+    fontWeight: 700,
+    fontSize: 60,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  h2: {
+    color: palette.grey[700],
+    fontWeight: 700,
+    fontSize: 48,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  h3: {
+    color: palette.grey[700],
+    fontWeight: 600,
+    fontSize: 36,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  h4: {
+    color: palette.grey[700],
+    fontWeight: 600,
+    fontSize: 28,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  h5: {
+    color: palette.grey[700],
+    fontWeight: 500,
+    fontSize: 24,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  h6: {
+    color: palette.grey[700],
+    fontWeight: 500,
+    fontSize: 20,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  subtitle1: {
+    color: palette.grey[700],
+    fontWeight: 600,
+    fontSize: 16,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  subtitle2: {
+    color: palette.grey[700],
+    fontWeight: 600,
+    fontSize: 15,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  body1: {
+    color: palette.grey[700],
+    fontWeight: 500,
+    fontSize: 15,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  body2: {
+    color: palette.grey[700],
+    fontWeight: 400,
+    fontSize: 12,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  button: {
+    color: palette.white,
+    fontWeight: 700,
+    fontSize: 14,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+  caption: {
+    color: palette.grey[700],
+    fontWeight: 400,
+    fontSize: 10,
+    letterSpacing: "normal",
+    lineHeight: "normal",
+  },
+};

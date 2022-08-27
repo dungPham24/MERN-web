@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch } from "react-redux";
+import "./theme/material/styles";
+import LoginRedux from "./redux/login.redux";
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import Login from "pages/loginPage";
+import Home from "pages/homePage";
+import { AppConstant } from "const";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      LoginRedux.checkLogin({
+        username: "manager1@gmail.com",
+        password: "trung",
+      }),
+    );
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path={AppConstant.LOGIN_PATH} element={<Login />} />
+        <Route path={AppConstant.HOME_PATH} element={<Home />} />
+      </Routes>
     </div>
   );
 }
