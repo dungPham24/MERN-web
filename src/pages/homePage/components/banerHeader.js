@@ -1,23 +1,24 @@
+import { useTranslation } from "react-i18next";
 import { Box } from "@mui/system";
 import { makeStyles } from "@material-ui/styles";
-import { Avatar, CardActionArea, InputAdornment, TextField, Typography } from "@mui/material";
+import { Avatar, CardActionArea, Fab, InputAdornment, TextField, Typography } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { header, bannerAvatar, phoneImage, phoneImage1, phoneMage, phoneFf, phoneFfg } from "theme/images";
 
 const BannerHeader = () => {
   const classes = useStyles();
+  const { t, i18n } = useTranslation();
 
   return (
     <CardActionArea>
       <Box className={classes.backgroundContainer}>
         <Box className={classes.cardText}>
-          <Box className={classes.subCardText}>NỀN TẢNG Y TẾ</Box>
-          <Box className={classes.subCardTextP}>CHĂM SÓC SỨC KHỎE TOÀN DIỆN</Box>
+          <Box className={classes.subCardText}>{t("medicalBackground")}</Box>
+          <Box className={classes.subCardTextP}>{t("comprehensiveHealthCare")}</Box>
           <TextField
-            className={classes.ffds}
             size="small"
             variant="outlined"
-            placeholder="Tìm chuyên khoa khám bệnh"
+            placeholder={t("findMedicalSpecialty")}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -30,28 +31,41 @@ const BannerHeader = () => {
         </Box>
         <Box className={classes.iconContent}>
           <Box className={classes.subIconContent}>
-            <Avatar src={bannerAvatar} />
-            <Typography>Khám chuyên khoa</Typography>
+            <Fab sx={{ backgroundColor: "#fff" }}>
+              <Avatar src={bannerAvatar} />
+            </Fab>
+            <Typography className={classes.textContent}>{t("specializedExamination")}</Typography>
           </Box>
           <Box className={classes.subIconContent}>
-            <Avatar src={phoneImage} />
-            <Typography>Khám từ xa</Typography>
+            <Fab sx={{ backgroundColor: "#fff" }}>
+              <Avatar src={phoneImage} />
+            </Fab>
+            <Typography className={classes.textContent}>{t("remoteExamination")}</Typography>
           </Box>
           <Box className={classes.subIconContent}>
-            <Avatar src={phoneImage1} />
-            <Typography>Khám tổng quát</Typography>
+            <Fab sx={{ backgroundColor: "#fff" }}>
+              <Avatar src={phoneImage1} />
+            </Fab>
+            <Typography className={classes.textContent}>{t("generalExamination")}</Typography>
           </Box>
           <Box className={classes.subIconContent}>
-            <Avatar src={phoneMage} />
-            <Typography>Xét nghiệm y học</Typography>
+            <Fab sx={{ backgroundColor: "#fff" }}>
+              <Avatar src={phoneMage} />
+            </Fab>
+
+            <Typography className={classes.textContent}>{t("medicalTest")}</Typography>
           </Box>
           <Box className={classes.subIconContent}>
-            <Avatar src={phoneFf} />
-            <Typography>Sức khỏe tinh thần</Typography>
+            <Fab sx={{ backgroundColor: "#fff" }}>
+              <Avatar src={phoneFf} />
+            </Fab>
+            <Typography className={classes.textContent}>{t("mentalHealth")}</Typography>
           </Box>
           <Box className={classes.subIconContent}>
-            <Avatar src={phoneFfg} />
-            <Typography>Khám nha khoa</Typography>
+            <Fab sx={{ backgroundColor: "#fff" }}>
+              <Avatar src={phoneFfg} />
+            </Fab>
+            <Typography className={classes.textContent}>{t("dentalExamination")}</Typography>
           </Box>
         </Box>
       </Box>
@@ -68,7 +82,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    height: "50%",
+    height: "65%",
+    backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.1),rgba(255, 255, 255, 0))",
+    padding: "45px 0",
   },
   subCardText: {
     color: "#FFF",
@@ -78,7 +94,7 @@ const useStyles = makeStyles(theme => ({
   },
   backgroundContainer: {
     background: `url(${header})`,
-    height: 485,
+    height: 500,
     width: "100%",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -90,7 +106,7 @@ const useStyles = makeStyles(theme => ({
     color: "#FFF",
   },
   iconContent: {
-    height: "50%",
+    height: "35%",
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
@@ -103,5 +119,8 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     padding: "0 20px 50px 20px",
     justifyContent: "flex-end",
+  },
+  textContent: {
+    paddingTop: 10,
   },
 }));

@@ -1,12 +1,27 @@
-import React from "react";
+import { useTranslation } from "react-i18next";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Box, Button, CardMedia, IconButton, Typography } from "@mui/material";
+import { Box, Button, IconButton, ListItemButton, ListItemText, Popover, Typography } from "@mui/material";
 import { Menu, HelpOutline } from "@mui/icons-material";
-import headerLogo from "theme/images/bookingcare-2020.svg";
 import BannerHeader from "./banerHeader";
+import i18n from "languages";
 
 const HomeHeader = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
+
+  const [openAnchorEl, setOpenAnchorEl] = useState(null);
+
+  const open = Boolean(openAnchorEl);
+
+  const onClickEng = () => {
+    i18n.changeLanguage("vi");
+    setOpenAnchorEl(null);
+  };
+  const onClickVi = () => {
+    i18n.changeLanguage("en");
+    setOpenAnchorEl(null);
+  };
   return (
     <>
       <Box className={classes.homeHeaderContainer}>
@@ -17,33 +32,56 @@ const HomeHeader = () => {
                 <Menu />
               </IconButton>
             </Box>
-            <CardMedia component="img" image={headerLogo} />
           </Box>
           <Box className={classes.middContent}>
             <Box>
-              <Typography className="regular-lg-txt">Chuyên khoa</Typography>
-              <Typography className="bold-title-header">Tìm theo bác sĩ</Typography>
+              <Typography className="regular-lg-txt">{t("speciality")}</Typography>
+              <Typography className="bold-title-header">{t("searchDoctor")}</Typography>
             </Box>
             <Box>
-              <Typography className="regular-lg-txt">Cơ sở y tế</Typography>
-              <Typography className="bold-title-header">Chọn bệnh viện phòng khám</Typography>
+              <Typography className="regular-lg-txt">{t("healthFacilities")}</Typography>
+              <Typography className="bold-title-header">{t("hospital")}</Typography>
             </Box>
             <Box>
-              <Typography className="regular-lg-txt">Bác sĩ</Typography>
-              <Typography className="bold-title-header">Chọn bác sĩ giỏi</Typography>
+              <Typography className="regular-lg-txt">{t("doctor")}</Typography>
+              <Typography className="bold-title-header">{t("chooseDoctor")}</Typography>
             </Box>
             <Box>
-              <Typography className="regular-lg-txt">Gói khám</Typography>
-              <Typography className="bold-title-header">Khám sức khỏe tổng quát</Typography>
+              <Typography className="regular-lg-txt">{t("checkupPackage")}</Typography>
+              <Typography className="bold-title-header">{t("GeneralHealthCheck")}</Typography>
             </Box>
           </Box>
           <Box className={classes.rightContent}>
-            <Button color="error" variant="text" startIcon={<HelpOutline />}>
-              Hỗ trợ
+            <Button
+              onClick={event => setOpenAnchorEl(event.currentTarget)}
+              color="error"
+              variant="text"
+              startIcon={<HelpOutline />}
+            >
+              {t("support")}
             </Button>
           </Box>
         </Box>
       </Box>
+      <Popover
+        open={open}
+        anchorEl={openAnchorEl}
+        onClose={() => setOpenAnchorEl(null)}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+      >
+        <ListItemButton>
+          <ListItemText primary="Tới chat box" />
+        </ListItemButton>
+        <ListItemButton onClick={onClickEng}>
+          <ListItemText primary={t("languagesVi")} />
+        </ListItemButton>
+        <ListItemButton onClick={onClickVi}>
+          <ListItemText primary={t("languagesEn")} />
+        </ListItemButton>
+      </Popover>
       <BannerHeader />
     </>
   );
@@ -65,18 +103,18 @@ const useStyles = makeStyles({
     padding: "0 20px",
   },
   imageContent: {
-    width: "25%",
+    width: "10%",
     display: "flex",
   },
   middContent: {
-    width: "60%",
+    width: "70%",
     display: "flex",
     justifyContent: "space-around",
     textAlign: "center",
     alignItems: "center",
   },
   rightContent: {
-    width: "15%",
+    width: "20%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

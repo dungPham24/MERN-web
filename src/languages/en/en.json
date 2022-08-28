@@ -1,0 +1,22 @@
+{
+  "speciality": "Specialty",
+  "searchDoctor": "Find a doctor by specialty",
+  "healthFacilities": "Health facilities",
+  "hospital": "Choose hospital clinic",
+  "doctor": "doctor",
+  "chooseDoctor": "Choose a good doctor",
+  "checkupPackage": "Checkup package",
+  "generalHealthCheck": "General health check",
+  "support": "support",
+  "languagesEn": "English",
+  "languagesVi": "VietNamese",
+  "medicalBackground": "MEDICAL BACKGROUND",
+  "comprehensiveHealthCare": "Comprehensive health care",
+  "findMedicalSpecialty": "Find a medical specialty",
+  "specializedExamination": "Specialized examination",
+  "remoteExamination": "Remote examination",
+  "generalExamination": "General examination",
+  "medicalTest": "Medical test",
+  "mentalHealth": "Mental health",
+  "dentalExamination": "Dental examination"
+}
