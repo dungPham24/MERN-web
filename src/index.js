@@ -8,6 +8,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter } from "react-router-dom";
 import theme from "theme/material";
 import "./theme/material/styles";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 ReactDOM.render(
   <Provider store={store}>

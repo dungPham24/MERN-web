@@ -5,4 +5,5 @@ import phoneImage1 from "theme/images/khamtongquat.png";
 import phoneMage from "theme/images/dichvuxetnghiem.png";
 import phoneFf from "theme/images/khamnhakhoa.png";
 import phoneFfg from "theme/images/phauthuat.jpg";
-export { header, bannerAvatar, phoneImage, phoneImage1, phoneMage, phoneFf, phoneFfg };
+import sliderTest from "theme/images/slider-slick.jpg";
+export { header, bannerAvatar, phoneImage, phoneImage1, phoneMage, phoneFf, phoneFfg, sliderTest };

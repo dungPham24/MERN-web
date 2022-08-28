@@ -48,7 +48,7 @@ const HomeHeader = () => {
             </Box>
             <Box>
               <Typography className="regular-lg-txt">{t("checkupPackage")}</Typography>
-              <Typography className="bold-title-header">{t("GeneralHealthCheck")}</Typography>
+              <Typography className="bold-title-header">{t("generalHealthCheck")}</Typography>
             </Box>
           </Box>
           <Box className={classes.rightContent}>
