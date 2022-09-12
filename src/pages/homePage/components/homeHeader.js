@@ -1,27 +1,24 @@
-import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
 import { Box, Button, IconButton, ListItemButton, ListItemText, Popover, Typography } from "@mui/material";
 import { Menu, HelpOutline } from "@mui/icons-material";
-import BannerHeader from "./banerHeader";
 import i18n from "languages";
+import BannerHeader from "./banerHeader";
 
 const HomeHeader = () => {
   const classes = useStyles();
   const { t } = useTranslation();
-
   const [openAnchorEl, setOpenAnchorEl] = useState(null);
 
   const open = Boolean(openAnchorEl);
 
-  const onClickEng = () => {
-    i18n.changeLanguage("vi");
+  const onClickLanguages = lng => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("languages", lng);
     setOpenAnchorEl(null);
   };
-  const onClickVi = () => {
-    i18n.changeLanguage("en");
-    setOpenAnchorEl(null);
-  };
+
   return (
     <>
       <Box className={classes.homeHeaderContainer}>
@@ -51,13 +48,8 @@ const HomeHeader = () => {
               <Typography className="bold-title-header">{t("generalHealthCheck")}</Typography>
             </Box>
           </Box>
-          <Box className={classes.rightContent}>
-            <Button
-              onClick={event => setOpenAnchorEl(event.currentTarget)}
-              color="error"
-              variant="text"
-              startIcon={<HelpOutline />}
-            >
+          <Box onClick={event => setOpenAnchorEl(event.currentTarget)} className={classes.rightContent}>
+            <Button color="error" variant="text" startIcon={<HelpOutline />}>
               {t("support")}
             </Button>
           </Box>
@@ -69,16 +61,16 @@ const HomeHeader = () => {
         onClose={() => setOpenAnchorEl(null)}
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "left",
+          horizontal: "center",
         }}
       >
         <ListItemButton>
           <ListItemText primary="Tới chat box" />
         </ListItemButton>
-        <ListItemButton onClick={onClickEng}>
+        <ListItemButton onClick={() => onClickLanguages("vi")}>
           <ListItemText primary={t("languagesVi")} />
         </ListItemButton>
-        <ListItemButton onClick={onClickVi}>
+        <ListItemButton onClick={() => onClickLanguages("en")}>
           <ListItemText primary={t("languagesEn")} />
         </ListItemButton>
       </Popover>
@@ -94,7 +86,9 @@ const useStyles = makeStyles({
     height: 60,
     boder: "1px soild red",
     width: "100%",
-    background: "#ccc",
+    background: "#FAFAFA",
+    position: "fixed",
+    zIndex: 10000,
   },
   homeHeaderContent: {
     width: "100%",

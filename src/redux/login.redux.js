@@ -4,6 +4,9 @@ const { Types, Creators } = createActions({
   checkLogin: ["data"],
   loginSuccess: ["data"],
   loginFailure: ["error"],
+  conversationSet: ["data"],
+  createUser: ["data"],
+  getTopDoctor: ["data"],
 });
 export const LoginTypes = Types;
 export default Creators;
@@ -15,6 +18,8 @@ export const INITIAL_STATE = {
   isSuccess: false,
   isLoginSuccess: false,
   error: null,
+  languageEn: null,
+  getDataTopDoctor: null,
 };
 /* ------------- Reducers Waiting Consumer ------------- */
 export const request = (state = INITIAL_STATE) => ({
@@ -46,8 +51,12 @@ export const set = (state = INITIAL_STATE, action) => {
 /* ------------- Mapping ------------- */
 export const HANDLERS = {
   [Types.CHECK_LOGIN]: request,
+  [Types.CREATE_USER]: request,
+  [Types.GET_TOP_DOCTOR]: request,
+
   [Types.LOGIN_SUCCESS]: success,
   [Types.LOGIN_FAILURE]: failure,
+  [Types.CONVERSATION_SET]: set,
 };
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, HANDLERS);

@@ -18,5 +18,10 @@
   "generalExamination": "General examination",
   "medicalTest": "Medical test",
   "mentalHealth": "Mental health",
-  "dentalExamination": "Dental examination"
+  "dentalExamination": "Dental examination",
+  "user": "user",
+  "clinic": "clinic",
+  "handbook": "handbook",
+  "wellcome": "wellcome",
+  "languages": "languages"
 }

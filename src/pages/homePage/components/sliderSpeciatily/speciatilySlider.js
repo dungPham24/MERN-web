@@ -1,31 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Box, Button, CardMedia, Typography } from "@mui/material";
 import Slider from "react-slick";
 import { sliderTest } from "theme/images";
 import "theme/material/styles/cusstomArrslider.scss";
-
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", borderRadius: "50%", background: "green" }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", borderRadius: "50%", background: "green" }}
-      onClick={onClick}
-    />
-  );
-}
+import { SampleNextArrow, SamplePrevArrow } from "./customArrslider";
 
 const SpeciatilySlider = () => {
   const classes = useStyles();
@@ -37,8 +16,8 @@ const SpeciatilySlider = () => {
     slidesToScroll: 1,
     draggable: false,
     dots: false,
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
   return (
     <Box className={classes.containerSlider}>
@@ -49,34 +28,34 @@ const SpeciatilySlider = () => {
       <Slider {...settings}>
         <Box className={classes.container}>
           <CardMedia className={classes.containerImage} component="img" image={sliderTest} />
-          <Typography className={classes.containerText}>Cơ xương khớp</Typography>
+          <Typography className={classes.containerText}>Cơ xương khớp0</Typography>
         </Box>
         <Box className={classes.container}>
           <CardMedia className={classes.containerImage} component="img" image={sliderTest} />
-          <Typography className={classes.containerText}>Cơ xương khớp</Typography>
+          <Typography className={classes.containerText}>Cơ xương khớp1</Typography>
         </Box>
         <Box className={classes.container}>
           <CardMedia className={classes.containerImage} component="img" image={sliderTest} />
-          <Typography className={classes.containerText}>Cơ xương khớp</Typography>
+          <Typography className={classes.containerText}>Cơ xương khớp2</Typography>
         </Box>
         <Box className={classes.container}>
           <CardMedia className={classes.containerImage} component="img" image={sliderTest} />
-          <Typography className={classes.containerText}>Cơ xương khớp</Typography>
+          <Typography className={classes.containerText}>Cơ xương khớp3</Typography>
         </Box>
         <Box className={classes.container}>
           <CardMedia className={classes.containerImage} component="img" image={sliderTest} />
-          <Typography className={classes.containerText}>Cơ xương khớp</Typography>
+          <Typography className={classes.containerText}>Cơ xương khớp4</Typography>
         </Box>
         <Box className={classes.container}>
           <CardMedia className={classes.containerImage} component="img" image={sliderTest} />
-          <Typography className={classes.containerText}>Cơ xương khớp</Typography>
+          <Typography className={classes.containerText}>Cơ xương khớp5</Typography>
         </Box>
       </Slider>
     </Box>
   );
 };
 
-export default SpeciatilySlider;
+export default memo(SpeciatilySlider);
 
 const useStyles = makeStyles({
   containerSlider: {

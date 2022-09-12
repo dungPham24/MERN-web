@@ -10,7 +10,7 @@ const BannerHeader = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <CardActionArea>
+    <CardActionArea sx={{ padding: "50px 0" }}>
       <Box className={classes.backgroundContainer}>
         <Box className={classes.cardText}>
           <Box className={classes.subCardText}>{t("medicalBackground")}</Box>

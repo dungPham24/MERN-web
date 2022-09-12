@@ -18,5 +18,10 @@
   "generalExamination": "Khám tổng quát",
   "medicalTest": "Xét nghiệm y học",
   "mentalHealth": "Sức khỏe tinh thần",
-  "dentalExamination": "Khám nha khoa"
+  "dentalExamination": "Khám nha khoa",
+  "user": "Người dùng",
+  "clinic": "phòng khám",
+  "handbook": "cẩm nang",
+  "wellcome": "xin chào",
+  "languages": "ngôn ngữ"
 }

@@ -1,13 +1,22 @@
+import { Box } from "@mui/material";
+import MediaTalkAbout from "pages/mediaTalkAbout";
 import React from "react";
 import HomeHeader from "./components/homeHeader";
-import SpeciatilySlider from "./components/sliderSpeciatily";
+import Handbook from "./components/sliderSpeciatily/handbook";
+import MedicalFacility from "./components/sliderSpeciatily/medicalFacility";
+import OutstandingDoctor from "./components/sliderSpeciatily/outstandingDoctor";
+import SpeciatilySlider from "./components/sliderSpeciatily/speciatilySlider";
 
 const Home = () => {
   return (
-    <div style={{ overflow: "hidden" }}>
+    <Box style={{ overflow: "hidden" }}>
       <HomeHeader />
       <SpeciatilySlider />
-    </div>
+      <MedicalFacility />
+      <OutstandingDoctor />
+      <Handbook />
+      <MediaTalkAbout />
+    </Box>
   );
 };
 
