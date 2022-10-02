@@ -10,6 +10,7 @@ import theme from "theme/material";
 import "./theme/material/styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-markdown-editor-lite/lib/index.css";
 
 ReactDOM.render(
   <Provider store={store}>

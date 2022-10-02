@@ -10,7 +10,7 @@
   "support": "support",
   "languagesEn": "English",
   "languagesVi": "VietNamese",
-  "medicalBackground": "MEDICAL BACKGROUND",
+  "medicalBackground": "MEDICAL PLATFORM",
   "comprehensiveHealthCare": "Comprehensive health care",
   "findMedicalSpecialty": "Find a medical specialty",
   "specializedExamination": "Specialized examination",
@@ -23,5 +23,7 @@
   "clinic": "clinic",
   "handbook": "handbook",
   "wellcome": "wellcome",
-  "languages": "languages"
+  "languages": "languages",
+  "doctorTop": "DoctorTop",
+  "search": "Search"
 }

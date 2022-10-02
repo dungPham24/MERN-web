@@ -2,10 +2,11 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "saga";
 import * as LoginRedux from "./login.redux";
-
+import * as InformationRedux from "./information.redux";
 /* ------------- Assemble The Reducers ------------- */
 export const appReducer = combineReducers({
   loginRedux: LoginRedux.reducer,
+  InformationRedux: InformationRedux.reducer,
 });
 
 export const rootReducer = (state, action) => {

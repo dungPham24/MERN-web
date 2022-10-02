@@ -1,20 +1,28 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { Buffer } from "buffer";
 import StringFormat from "string-format";
 import reduxAction from "redux/login.redux";
 import { makeStyles } from "@material-ui/styles";
 import { Box, Button, Card, CardMedia, Typography } from "@mui/material";
 import Slider from "react-slick";
-import { sliderTest } from "theme/images";
-import "theme/material/styles/cusstomArrslider.scss";
+import { FormatConstant } from "const";
 import { SampleNextArrow, SamplePrevArrow } from "./customArrslider";
-import { AppConstant, FormatConstant } from "const";
 
 const OutstandingDoctor = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const getTopDoctor = useSelector(state => state.loginRedux.getDataTopDoctor);
-  const languages = localStorage.getItem(AppConstant.LOCAL_STORAGE);
+  const changeLanguages = useSelector(state => state.loginRedux.changeLanguages);
+
+  const [chane, setChane] = useState();
+
+  useEffect(() => {
+    const changeLogin = localStorage.getItem("languages");
+    setChane(changeLogin);
+  }, [changeLanguages]);
 
   useEffect(() => {
     dispatch(
@@ -27,18 +35,16 @@ const OutstandingDoctor = () => {
   return (
     <Box className={classes.containerSlider}>
       <Box className={classes.containerTittle}>
-        <Typography>Bác sĩ nổi bật tuần qua</Typography>
-        <Button>Tìm kiếm</Button>
+        <Typography>{t("doctorTop")}</Typography>
+        <Button>{t("search")}</Button>
       </Box>
       <Slider {...settings}>
         {getTopDoctor &&
           getTopDoctor.map((item, index) => {
-            // const files = getbase64(item.image);
             let file = "";
-            // if (item.image) {
-            //   file = new Buffer(item.image.data, "base64").toString("binary");
-            //   console.log(file);
-            // }
+            if (item.image) {
+              file = new Buffer(item.image.data, "base64").toString("binary");
+            }
 
             const nameVn = StringFormat(
               FormatConstant.NameVi,
@@ -55,8 +61,8 @@ const OutstandingDoctor = () => {
 
             return (
               <Card key={index} className={classes.container}>
-                <CardMedia className={classes.containerImage} component="img" image={sliderTest} />
-                <Typography className={classes.containerText}>{languages === "vi" ? nameVn : nameEn}</Typography>
+                <CardMedia className={classes.containerImage} component="img" image={file} />
+                <Typography className={classes.containerText}>{chane === "vi" ? nameVn : nameEn}</Typography>
               </Card>
             );
           })}

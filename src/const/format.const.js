@@ -1,3 +1,3 @@
 const NameVi = "{0}, {1} {2}";
-
-export { NameVi };
+const nameDoctor = "{0} {1}";
+export { NameVi, nameDoctor };

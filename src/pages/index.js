@@ -1,5 +1,5 @@
 import LoginPage from "./loginPage";
 import HomePage from "./homePage";
 import MediaTalkAbout from "./mediaTalkAbout";
-
-export { LoginPage, HomePage, MediaTalkAbout };
+import SystemDoctor from "./systemManage/admin/systemDoctor";
+export { LoginPage, HomePage, MediaTalkAbout, SystemDoctor };

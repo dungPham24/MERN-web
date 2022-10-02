@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/styles";
 import { HelpOutline } from "@mui/icons-material";
 import { LogoutOutlined } from "@mui/icons-material";
 import { PopoverClinic, PopoverHandbook, PopoverLanguages, PopoverSpecialist, PopoverUser } from "./popoverSystem";
-import Admin from "./admin";
 
 const HeaderSystem = () => {
   const classes = useStyles();
@@ -74,7 +73,6 @@ const HeaderSystem = () => {
         openAnchorElSpecialist={openAnchorElSpecialist}
       />
       <PopoverHandbook setopenAnchorElHandbook={setopenAnchorElHandbook} openAnchorElHandbook={openAnchorElHandbook} />
-      <Admin />
     </>
   );
 };

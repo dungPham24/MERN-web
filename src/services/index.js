@@ -1,3 +1,3 @@
 import * as LoginService from "./login.services";
-
-export { LoginService };
+import * as InformationService from "./information.service";
+export { LoginService, InformationService };

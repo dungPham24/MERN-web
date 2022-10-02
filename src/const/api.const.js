@@ -19,3 +19,4 @@ export const STT_MAINTAIN = 503;
 export const GANTT_CHAT = "api/login/";
 export const CREATE_USER = "api/create/newUser";
 export const GET_TOP_DOCTOR = "api/doctor/top";
+export const GET_ALL_DOCTOR = "api/all/doctors";

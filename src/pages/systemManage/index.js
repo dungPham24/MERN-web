@@ -1,11 +1,11 @@
 import React from "react";
-import HeaderSystem from "./headerSystem";
+import Admin from "./admin";
 
 const SystemManage = () => {
   return (
-    <div>
-      <HeaderSystem />
-    </div>
+    <>
+      <Admin />
+    </>
   );
 };
 

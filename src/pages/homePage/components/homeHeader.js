@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
 import { Box, Button, IconButton, ListItemButton, ListItemText, Popover, Typography } from "@mui/material";
 import { Menu, HelpOutline } from "@mui/icons-material";
 import i18n from "languages";
 import BannerHeader from "./banerHeader";
-
+import conversationDispacth from "redux/login.redux";
 const HomeHeader = () => {
   const classes = useStyles();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
   const [openAnchorEl, setOpenAnchorEl] = useState(null);
 
   const open = Boolean(openAnchorEl);
@@ -16,6 +19,11 @@ const HomeHeader = () => {
   const onClickLanguages = lng => {
     i18n.changeLanguage(lng);
     localStorage.setItem("languages", lng);
+    dispatch(
+      conversationDispacth.conversationSet({
+        changeLanguages: lng,
+      }),
+    );
     setOpenAnchorEl(null);
   };
 

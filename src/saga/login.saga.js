@@ -20,7 +20,7 @@ export function* checkLogin(action) {
       yield put(LoginAction.loginFailure(response.data));
     }
   } catch (error) {
-    // yield put(LoginAction.loginFailure(error));
+    yield put(LoginAction.loginFailure(error));
     console.log(error);
   }
 }

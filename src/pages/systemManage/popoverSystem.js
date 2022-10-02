@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import i18n from "languages";
 import { ListItemButton, ListItemText, Popover } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const PopoverLanguages = ({ openAnchorEl, setOpenAnchorEl }) => {
   const { t } = useTranslation();
@@ -53,12 +54,16 @@ export const PopoverUser = ({ openAnchorElUser, setOpenAnchorElUser }) => {
         horizontal: "left",
       }}
     >
-      <ListItemButton>
-        <ListItemText primary="CRUD redux" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemText primary="quản lý bác sĩ" />
-      </ListItemButton>
+      <Link to="/system-manage">
+        <ListItemButton>
+          <ListItemText primary="Tạo User" />
+        </ListItemButton>
+      </Link>
+      <Link to="/system-doctor">
+        <ListItemButton>
+          <ListItemText primary="Tạo thông tin bác sĩ" />
+        </ListItemButton>
+      </Link>
       <ListItemButton>
         <ListItemText primary="quản lý admin" />
       </ListItemButton>

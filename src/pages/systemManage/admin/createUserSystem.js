@@ -11,7 +11,7 @@ const CreateUserSystem = () => {
   const dispatch = useDispatch();
 
   const [fileSystem, setFileSystem] = useState("");
-  console.log(fileSystem.avatar);
+
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -30,6 +30,7 @@ const CreateUserSystem = () => {
 
   const onchageFile = async e => {
     const file = e.target.files[0];
+
     if (file) {
       const base64 = await getbase64(file);
       const objectFile = URL.createObjectURL(file);
@@ -52,6 +53,7 @@ const CreateUserSystem = () => {
     }
     return isvalidate;
   };
+
   const handleSubmit = e => {
     e.preventDefault();
     const isValidate = validateForm();
@@ -65,7 +67,7 @@ const CreateUserSystem = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={{ padding: "0 30px" }} onSubmit={handleSubmit}>
       <Box className={classes.containerCreateUser}>
         <Box className={classes.containerSubInput}>
           <label className={classes.contarinerSubLabel} htmlFor="email">
@@ -121,7 +123,6 @@ const CreateUserSystem = () => {
           />
         </Box>
       </Box>
-
       <Box className={classes.container}>
         <Box className={classes.containerFormControlSeclect}>
           <FormControl sx="small" fullWidth>

@@ -7,6 +7,7 @@ import { AppConstant } from "const";
 import Login from "pages/loginPage";
 import Home from "pages/homePage";
 import SystemManage from "pages/systemManage";
+import { SystemDoctor } from "pages";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function App() {
   useEffect(() => {
     dispatch(
       LoginRedux.checkLogin({
-        email: "dungdeptrai@gmail.com",
+        email: "dungpham@gmail.com",
         password: "123456",
       }),
     );
@@ -26,6 +27,7 @@ function App() {
         <Route path={AppConstant.LOGIN_PATH} element={<Login />} />
         <Route path={AppConstant.HOME_PATH} element={<Home />} />
         <Route path={AppConstant.SYSTEM_MANAGE} element={<SystemManage />} />
+        <Route path={AppConstant.SYSTEM_DOCTOR} element={<SystemDoctor />} />
       </Routes>
     </div>
   );

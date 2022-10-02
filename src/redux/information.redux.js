@@ -1,14 +1,13 @@
 import { createReducer, createActions } from "reduxsauce";
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
-  checkLogin: ["data"],
-  loginSuccess: ["data"],
-  loginFailure: ["error"],
+  allDoctor: ["data"],
+
   conversationSet: ["data"],
-  createUser: ["data"],
-  getTopDoctor: ["data"],
+  informationSuccess: ["data"],
+  informationFailure: ["error"],
 });
-export const LoginTypes = Types;
+export const InformationTypes = Types;
 export default Creators;
 /* ------------- Initial State ------------- */
 
@@ -16,16 +15,14 @@ export const INITIAL_STATE = {
   data: null,
   isFetching: false,
   isSuccess: false,
-  isLoginSuccess: false,
-  error: null,
-  changeLanguages: null,
-  getDataTopDoctor: null,
+  allDoctors: null,
 };
 /* ------------- Reducers Waiting Consumer ------------- */
 export const request = (state = INITIAL_STATE) => ({
   ...state,
   isFetching: true,
 });
+
 export const success = (state = INITIAL_STATE, action) => {
   return {
     ...state,
@@ -33,6 +30,7 @@ export const success = (state = INITIAL_STATE, action) => {
     ...action.data,
   };
 };
+
 export const failure = (state = INITIAL_STATE, action) => ({
   ...state,
   isFetching: false,
@@ -50,12 +48,10 @@ export const set = (state = INITIAL_STATE, action) => {
 
 /* ------------- Mapping ------------- */
 export const HANDLERS = {
-  [Types.CHECK_LOGIN]: request,
-  [Types.CREATE_USER]: request,
-  [Types.GET_TOP_DOCTOR]: request,
+  [Types.ALL_DOCTOR]: request,
 
-  [Types.LOGIN_SUCCESS]: success,
-  [Types.LOGIN_FAILURE]: failure,
+  [Types.INFORMATION_SUCCESS]: success,
+  [Types.INFORMATION_FAILURE]: failure,
   [Types.CONVERSATION_SET]: set,
 };
 /* ------------- Hookup Reducers To Types ------------- */
