@@ -9,13 +9,15 @@ import SpeciatilySlider from "./components/sliderSpeciatily/speciatilySlider";
 
 const Home = () => {
   return (
-    <Box style={{ overflow: "hidden" }}>
-      <HomeHeader />
+    <Box  style={{ overflow: "hidden" }}>
+      <HomeHeader /> 
       <SpeciatilySlider />
       <MedicalFacility />
       <OutstandingDoctor />
       <Handbook />
       <MediaTalkAbout />
+
+      
     </Box>
   );
 };

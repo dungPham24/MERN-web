@@ -2,10 +2,14 @@ import { createReducer, createActions } from "reduxsauce";
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
   allDoctor: ["data"],
-
+  postDetailsDoctor: ["data"],
   conversationSet: ["data"],
   informationSuccess: ["data"],
+  detailsDoctor : ["data"],
+
+
   informationFailure: ["error"],
+
 });
 export const InformationTypes = Types;
 export default Creators;
@@ -16,6 +20,8 @@ export const INITIAL_STATE = {
   isFetching: false,
   isSuccess: false,
   allDoctors: null,
+  successDetailsDoctor: null,
+  detailsDoctorData: null,
 };
 /* ------------- Reducers Waiting Consumer ------------- */
 export const request = (state = INITIAL_STATE) => ({
@@ -49,6 +55,8 @@ export const set = (state = INITIAL_STATE, action) => {
 /* ------------- Mapping ------------- */
 export const HANDLERS = {
   [Types.ALL_DOCTOR]: request,
+  [Types.POST_DETAILS_DOCTOR]: request,
+  [Types.DETAILS_DOCTOR]: request,
 
   [Types.INFORMATION_SUCCESS]: success,
   [Types.INFORMATION_FAILURE]: failure,

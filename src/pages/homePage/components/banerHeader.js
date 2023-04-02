@@ -52,7 +52,6 @@ const BannerHeader = () => {
             <Fab sx={{ backgroundColor: "#fff" }}>
               <Avatar src={phoneMage} />
             </Fab>
-
             <Typography className={classes.textContent}>{t("medicalTest")}</Typography>
           </Box>
           <Box className={classes.subIconContent}>
@@ -94,7 +93,7 @@ const useStyles = makeStyles(theme => ({
   },
   backgroundContainer: {
     background: `url(${header})`,
-    height: 500,
+    height: 800,
     width: "100%",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",

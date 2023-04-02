@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
+import conversationDispacth from "redux/login.redux";
 import { makeStyles } from "@material-ui/styles";
 import { Box, Button, IconButton, ListItemButton, ListItemText, Popover, Typography } from "@mui/material";
 import { Menu, HelpOutline } from "@mui/icons-material";
 import i18n from "languages";
 import BannerHeader from "./banerHeader";
-import conversationDispacth from "redux/login.redux";
-const HomeHeader = () => {
+
+const HomeHeader = ({details }) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -82,7 +83,7 @@ const HomeHeader = () => {
           <ListItemText primary={t("languagesEn")} />
         </ListItemButton>
       </Popover>
-      <BannerHeader />
+      {details ? <></> : <BannerHeader />}
     </>
   );
 };
@@ -92,11 +93,11 @@ export default HomeHeader;
 const useStyles = makeStyles({
   homeHeaderContainer: {
     height: 60,
-    boder: "1px soild red",
     width: "100%",
     background: "#FAFAFA",
     position: "fixed",
     zIndex: 10000,
+    top: 0,
   },
   homeHeaderContent: {
     width: "100%",

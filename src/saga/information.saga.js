@@ -22,3 +22,34 @@ export function* Alldoctor(action) {
     console.log(error);
   }
 }
+
+export function* postDetailsDoctor(action) { 
+  try {
+    const { data } = action
+    let response = yield call(InformationService.postdetailsDoctor, data)
+    if (response.data.errCode === ApiConstant.STT_SUCESS) {
+      yield put(
+        InfomationRedux.conversationSet({
+          successDetailsDoctor:true,
+        }),
+      );
+   }
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+
+export function* detailsDoctor(action) {
+  try {
+    const { data } = action
+    let response = yield call(InformationService.detailsDoctor, data)
+    if (response.data.errCode === 0) {
+      yield put(InfomationRedux.conversationSet({
+        detailsDoctorData :response.data.data,
+      }))
+   }
+  } catch (error) {
+    console.log(error)
+  }
+}

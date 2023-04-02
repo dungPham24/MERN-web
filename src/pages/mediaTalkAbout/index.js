@@ -10,7 +10,8 @@ const MediaTalkAbout = () => {
   return (
     <>
       <Card className={classes.containerWrap}>
-        <Typography className={clsx(classes.subContainerText, "regular-xl-txt")}>
+        <Box style={{maxWidth:1200,margin:"auto"}}>
+           <Typography className={clsx(classes.subContainerText, "regular-xl-txt")}>
           Truyền thông nói về BookingCare
         </Typography>
         <Box className={classes.containerAbout}>
@@ -33,6 +34,7 @@ const MediaTalkAbout = () => {
             clearly indicates hierarchy.
           </Typography>
         </Box>
+       </Box>
       </Card>
       <Footer />
     </>
@@ -59,5 +61,6 @@ const useStyles = makeStyles({
   },
   containerWrap: {
     padding: "20px 50px",
+    
   },
 });

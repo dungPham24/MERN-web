@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Box, Button, CardMedia, Typography } from "@mui/material";
+import { Box, Button, Card, CardMedia, Typography } from "@mui/material";
 import Slider from "react-slick";
 import { sliderTest } from "theme/images";
 import "theme/material/styles/cusstomArrslider.scss";
@@ -12,7 +12,7 @@ const Handbook = () => {
     infinite: true,
     focusOnSelect: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     draggable: false,
     dots: false,
@@ -20,8 +20,9 @@ const Handbook = () => {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <Box className={classes.containerSlider}>
-      <Box className={classes.containerTittle}>
+    <Card className={classes.containerSlider}>
+      <Box style={{maxWidth:1200,margin:"auto"}}>
+         <Box className={classes.containerTittle}>
         <Typography>Cẩm nang</Typography>
         <Button>Tất cả bài viết</Button>
       </Box>
@@ -51,7 +52,8 @@ const Handbook = () => {
           <Typography className={classes.containerText}>Cơ xương khớp5</Typography>
         </Box>
       </Slider>
-    </Box>
+     </Box>
+    </Card>
   );
 };
 

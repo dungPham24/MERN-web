@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Buffer } from "buffer";
@@ -16,9 +17,16 @@ const OutstandingDoctor = () => {
   const { t } = useTranslation();
   const getTopDoctor = useSelector(state => state.loginRedux.getDataTopDoctor);
   const changeLanguages = useSelector(state => state.loginRedux.changeLanguages);
-
+  let navigate = useNavigate();
+  
   const [chane, setChane] = useState();
 
+  const onClickDetails = (item) => {
+    if (item.id) {
+      navigate(`/user/${item.id}`);
+    }
+  }
+ 
   useEffect(() => {
     const changeLogin = localStorage.getItem("languages");
     setChane(changeLogin);
@@ -33,8 +41,9 @@ const OutstandingDoctor = () => {
   }, []);
 
   return (
-    <Box className={classes.containerSlider}>
-      <Box className={classes.containerTittle}>
+    <Card className={classes.containerSlider}>
+      <Box style={{maxWidth:1200,margin:"auto"}}>
+         <Box className={classes.containerTittle}>
         <Typography>{t("doctorTop")}</Typography>
         <Button>{t("search")}</Button>
       </Box>
@@ -60,14 +69,16 @@ const OutstandingDoctor = () => {
             );
 
             return (
-              <Card key={index} className={classes.container}>
+              <Card onClick={() =>onClickDetails(item)}
+                key={index} className={classes.container}>
                 <CardMedia className={classes.containerImage} component="img" image={file} />
                 <Typography className={classes.containerText}>{chane === "vi" ? nameVn : nameEn}</Typography>
               </Card>
             );
           })}
       </Slider>
-    </Box>
+     </Box>
+    </Card>
   );
 };
 
@@ -82,20 +93,23 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     padding: "20px 0",
+   textAlign: "center",
   },
   container: {
     padding: "0 10px",
     textAlign: "center",
-    width: "280px" + "!important",
+    width: "90%" + "!important",
     backgroundColor: "#fff",
     height: 220,
-    overflow: "hidden",
+    margin: "0 auto",
+
   },
   containerImage: {
     width: "120px" + "!important",
     height: 120,
     borderRadius: "50%",
     margin: " 20px auto",
+
   },
   containerText: {
     display: "-webkit-box",
@@ -114,6 +128,7 @@ const settings = {
   slidesToScroll: 1,
   draggable: false,
   dots: false,
+  autoplay:true,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
 };

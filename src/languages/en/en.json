@@ -25,5 +25,7 @@
   "wellcome": "wellcome",
   "languages": "languages",
   "doctorTop": "DoctorTop",
-  "search": "Search"
+  "search": "Search",
+  "createInfoDotor":"createInfoDotor"
+
 }
